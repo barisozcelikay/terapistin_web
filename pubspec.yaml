@@ -31,6 +31,9 @@ dependencies:
     sdk: flutter
   adobe_xd: ^2.0.0+1
   flutter_launcher_icons: ^0.9.2
+  url_launcher: ^6.0.6
+  
+  
 
 
   # The following adds the Cupertino Icons font to your application.

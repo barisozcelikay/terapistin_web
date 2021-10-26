@@ -1,0 +1,100 @@
+/*AppBar(
+          toolbarHeight: 100.0,
+          toolbarTextStyle: kNavBarTextStyle,
+          backgroundColor: kMainColor,
+          title: Container(
+            padding:
+                EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.1),
+            child: Row(
+              children: [
+                Flexible(
+                  child: FittedBox(
+                    child: Text(
+                      "terapistin",
+                      style: TextStyle(
+                          fontFamily: "Fidena",
+                          fontSize: MediaQuery.of(context).size.width * 0.024),
+                    ),
+                  ),
+                ),
+                //Image.asset('assets/images/logo.png')
+                Flexible(
+                  child: FittedBox(
+                    child: Image(
+                      image: AssetImage('images/terapistin_logo.png'),
+                      color: Color(0xffF6AD42).withOpacity(1),
+                      width: 51.75,
+                      height: 72.6,
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+          actions: [
+            Container(
+              width: MediaQuery.of(context).size.width * 0.5,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                // ignore: prefer_const_literals_to_create_immutables
+                children: [
+                  /*
+                  Expanded(
+                      child: RichText(
+                          text: TextSpan(
+                    text: "Ana Sayfa",
+                    style: kNavBarTextStyle,
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        print('The button is clicked!');
+                      },
+                  )))*/
+                  Expanded(
+                      child: RichText(
+                          text: TextSpan(
+                    text: "Nasıl Çalışır?",
+                    style: kNavBarTextStyle.copyWith(
+                        fontSize: MediaQuery.of(context).size.width * 0.014),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        print('The button is clicked!');
+                      },
+                  ))),
+                  Expanded(
+                      child: RichText(
+                          text: TextSpan(
+                    text: "Özellikler",
+                    style: kNavBarTextStyle.copyWith(
+                        fontSize: MediaQuery.of(context).size.width * 0.014),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        print('The button is clicked!');
+                      },
+                  ))),
+                  Expanded(
+                      child: RichText(
+                          text: TextSpan(
+                    text: "Destek",
+                    style: kNavBarTextStyle.copyWith(
+                        fontSize: MediaQuery.of(context).size.width * 0.014),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        print('The button is clicked!');
+                      },
+                  ))),
+                  Expanded(
+                      child: RichText(
+                          text: TextSpan(
+                    text: "Blog",
+                    style: kNavBarTextStyle.copyWith(
+                        fontSize: MediaQuery.of(context).size.width * 0.014),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        print('The button is clicked!');
+                      },
+                  ))),
+                ],
+              ),
+            )
+          ],
+        ),
