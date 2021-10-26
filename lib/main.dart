@@ -3,7 +3,7 @@ import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:terapistin_web/Screens/Anasayfa3.dart';
 
-import 'Screens/anasayfa_screen.dart';
+import 'website.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,6 +19,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Terapistin',
-        home: Anasayfa());
+        home: WebSite());
   }
 }
