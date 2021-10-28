@@ -16,7 +16,7 @@ class HomeScreenBody extends StatelessWidget {
           children: [
             Container(
               padding: EdgeInsets.only(
-                  left: MediaQuery.of(context).size.width * 0.13, top: 115),
+                  left: MediaQuery.of(context).size.width * 0.13, top: 95),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -127,7 +127,7 @@ class HomeScreenBody extends StatelessWidget {
                     child: Image(
                       image: AssetImage('images/scroll.png'),
                       height: 700,
-                      width: 520,
+                      width: 420,
                     ),
                   ),
                 ),

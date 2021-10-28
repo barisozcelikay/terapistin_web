@@ -36,11 +36,15 @@ class Features extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      child: Image(
-                        width: 1200,
-                        height: 750,
-                        image: AssetImage(
-                          'images/twophones.png',
+                      child: Flexible(
+                        child: FittedBox(
+                          child: Image(
+                            width: 1200,
+                            height: 750,
+                            image: AssetImage(
+                              'images/twophones.png',
+                            ),
+                          ),
                         ),
                       ),
                     ),
@@ -74,44 +78,47 @@ class Features extends StatelessWidget {
                           SizedBox(
                             height: 93.6,
                           ),
-                          Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Feature_Box(
-                                    sentence:
-                                        "Psikologları,\nyorum,\npuan veya ücret\nözelliklerine\ngöre seçebilme",
-                                  ),
-                                  Feature_Box(
-                                    sentence:
-                                        "Başka bir uygulamaya\ngerek duymadan\nterapistin ile\nkaliteli ve güvenli\ngörüntülü görüşme",
-                                  ),
-                                  Feature_Box(
-                                    sentence:
-                                        "Takvim üzerinden\nrandevu takibi,\nhatırlatıcı bildirim alabilme",
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Row(
-                                children: [
-                                  Feature_Box(
-                                    sentence: "Ödeme kolaylığı",
-                                  ),
-                                  Feature_Box(
-                                    sentence: "Gizlilik sözleşmesi\nkolaylığı",
-                                  ),
-                                  Feature_Box(
-                                    sentence:
-                                        "İstediğin yer ve\nzamanda\nTerapistin ile\ngörüşebilme",
-                                  ),
-                                ],
-                              )
-                            ],
+                          Container(
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Feature_Box(
+                                      sentence:
+                                          "Psikologları,\nyorum,\npuan veya ücret\nözelliklerine\ngöre seçebilme",
+                                    ),
+                                    Feature_Box(
+                                      sentence:
+                                          "Başka bir uygulamaya\ngerek duymadan\nterapistin ile\nkaliteli ve güvenli\ngörüntülü görüşme",
+                                    ),
+                                    Feature_Box(
+                                      sentence:
+                                          "Takvim üzerinden\nrandevu takibi,\nhatırlatıcı bildirim alabilme",
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Row(
+                                  children: [
+                                    Feature_Box(
+                                      sentence: "Ödeme kolaylığı",
+                                    ),
+                                    Feature_Box(
+                                      sentence:
+                                          "Gizlilik sözleşmesi\nkolaylığı",
+                                    ),
+                                    Feature_Box(
+                                      sentence:
+                                          "İstediğin yer ve\nzamanda\nTerapistin ile\ngörüşebilme",
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
                           )
                         ],
                       ),

@@ -25,7 +25,7 @@ class HowItWorks extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 50,
+                      fontSize: 45,
                       fontFamily: "Baloo",
                       fontWeight: FontWeight.w400),
                 ),
@@ -48,33 +48,19 @@ class HowItWorks extends StatelessWidget {
                             fontWeight: FontWeight.w400),
                       ),
                     ),
-                    Container(
-                      height: MediaQuery.of(context).size.height - 430,
-                      alignment: Alignment.center,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Container(
-                            child: Text(
-                              "1",
-                              textAlign: TextAlign.center,
+                    /* Container(
+                        height: MediaQuery.of(context).size.height - 430,
+                        alignment: Alignment.center,
+                        child: Center(
+                          child: Flexible(
+                            child: FittedBox(
+                              child: Image(
+                                image: AssetImage('images/three.jpeg'),
+                              ),
                             ),
                           ),
-                          Container(
-                            child: Text(
-                              "2",
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                          Container(
-                            child: Text(
-                              "3",
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                        )),
+                        */
                   ],
                 ),
               )
