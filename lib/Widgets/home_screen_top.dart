@@ -5,9 +5,8 @@ import 'package:flutter/material.dart';
 import '../constants.dart';
 
 class HomeScreenTop extends StatelessWidget {
-  const HomeScreenTop({
-    Key? key,
-  }) : super(key: key);
+  HomeScreenTop({Key? key, required this.index}) : super(key: key);
+  int index;
 
   @override
   Widget build(BuildContext context) {
@@ -89,6 +88,7 @@ class HomeScreenTop extends StatelessWidget {
                         print('The button is clicked!');
                       },
                   )),
+                  /*
                   RichText(
                       text: TextSpan(
                     text: "Blog",
@@ -98,7 +98,7 @@ class HomeScreenTop extends StatelessWidget {
                       ..onTap = () {
                         print('The button is clicked!');
                       },
-                  )),
+                  )),*/
                 ],
               ),
             ),

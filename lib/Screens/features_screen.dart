@@ -31,6 +31,7 @@ class Features extends StatelessWidget {
                 ),
               ),
               Container(
+                height: MediaQuery.of(context).size.height - 230,
                 alignment: Alignment.centerLeft,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,7 +77,7 @@ class Features extends StatelessWidget {
                             ),
                           ),
                           SizedBox(
-                            height: 93.6,
+                            height: 50,
                           ),
                           Container(
                             child: Column(

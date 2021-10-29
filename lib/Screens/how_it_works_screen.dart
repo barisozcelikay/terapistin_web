@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:terapistin_web/constants.dart';
 
 class HowItWorks extends StatelessWidget {
   const HowItWorks({
@@ -18,8 +19,8 @@ class HowItWorks extends StatelessWidget {
               Container(
                 width: MediaQuery.of(context).size.width,
                 alignment: Alignment.center,
-                height: 300,
-                color: Color(0xffFE720F),
+                height: 200,
+                color: kMainColor,
                 child: Text(
                   "Hemen İndir!\nAlanında uzman psikologlar içinde sana en uygun\nolanı seç,Terapiye Başla!",
                   textAlign: TextAlign.center,
@@ -48,7 +49,8 @@ class HowItWorks extends StatelessWidget {
                             fontWeight: FontWeight.w400),
                       ),
                     ),
-                    /* Container(
+                    Container(
+                        width: MediaQuery.of(context).size.width * 0.8,
                         height: MediaQuery.of(context).size.height - 430,
                         alignment: Alignment.center,
                         child: Center(
@@ -60,7 +62,6 @@ class HowItWorks extends StatelessWidget {
                             ),
                           ),
                         )),
-                        */
                   ],
                 ),
               )
