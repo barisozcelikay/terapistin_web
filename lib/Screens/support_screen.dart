@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:mailto/mailto.dart';
 import 'package:terapistin_web/Widgets/support_text_widget.dart';
 import 'package:terapistin_web/constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -85,12 +86,21 @@ class _SupportState extends State<Support> {
       {required String toEmail,
       required String subject,
       required String message}) async {
+    final mailtoLink = Mailto(
+        to: [toEmail],
+        subject: subject,
+        body: "deneme"); // Convert the Mailto instance into a string.
+    // Use either Dart's string interpolation
+    // or the toString() method.
+    await launch('$mailtoLink');
+    /*
     final url =
         'mailto:$toEmail?subject=${Uri.encodeFull(subject)}&body=${Uri.encodeFull(message)}';
 
     if (await canLaunch(url)) {
       await launch(url);
     }
+    */
   }
 
   @override
@@ -450,7 +460,7 @@ class _SupportState extends State<Support> {
                                 SizedBox(
                                   height: 10,
                                 ),
-                                Container(
+                                /*Container(
                                   child: Material(
                                     color: kMainColor, // control yap
                                     elevation: 5.0,
@@ -459,7 +469,8 @@ class _SupportState extends State<Support> {
                                       minWidth: 150,
                                       height: 42.0,
                                       onPressed: () => launchEmail(
-                                          toEmail: "destek@terapistin.com",
+                                          toEmail:
+                                              "baris.ozcelikay@tedu.edu.tr",
                                           subject: "Destek",
                                           message: " "),
                                       child: Text("E-posta Gönder",
@@ -471,7 +482,7 @@ class _SupportState extends State<Support> {
                                           vertical: 10.0),
                                     ),
                                   ),
-                                ),
+                                ),*/
                               ],
                             ),
                           ),
@@ -502,7 +513,9 @@ class _SupportState extends State<Support> {
                                 ),
                                 Container(
                                     child: Text(
-                                        "Mustafa Kemal Mh, 2118. Cd. Maidan İş ve Yaşam Merkezi, B Blok, Kat: 2 No: 12\nTerapistin")),
+                                  "Mustafa Kemal Mh, 2118. Cd. Maidan İş ve Yaşam Merkezi, B Blok, Kat: 2 No: 12\nTerapistin",
+                                  style: TextStyle(height: 1.5),
+                                )),
                                 SizedBox(
                                   height: 10,
                                 ),

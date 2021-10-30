@@ -57,7 +57,7 @@ class HowItWorks extends StatelessWidget {
                           child: Flexible(
                             child: FittedBox(
                               child: Image(
-                                image: AssetImage('images/three.jpeg'),
+                                image: AssetImage('images/t.png'),
                               ),
                             ),
                           ),
