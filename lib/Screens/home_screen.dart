@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -27,134 +28,182 @@ class HomeScreenBody extends StatelessWidget {
           children: [
             Container(
               height: MediaQuery.of(context).size.height - 100,
-              child: Row(
-                children: [
-                  Container(
-                    padding: EdgeInsets.only(
-                        left: MediaQuery.of(context).size.width * 0.13,
-                        top: 95),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          child: Text(
-                            "En Kaliteli ve Güvenilir\nOnline Terapi Hizmeti veren \nTerapistinApp",
-                            style: TextStyle(
-                                fontSize: MediaQuery.of(context).size.width *
-                                    0.028, //50,
-
-                                fontFamily: "Montserrat",
-                                color: Color(0xff6F6F6F),
-                                fontWeight: FontWeight.w500,
-                                height: 1.32),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 35,
-                        ),
-                        Container(
-                          padding: EdgeInsets.only(),
-                          child: Text(
-                              "Alanında uzman psikologlar içinde \nSana en uygun olanı seç, \nrandevunu oluştur,\nHemen görüşmeye başla!",
+              child: Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.only(top: 95),
+                      child: Center(
+                        child: Column(
+                          crossAxisAlignment:
+                              MediaQuery.of(context).size.width <= 500
+                                  ? CrossAxisAlignment.center
+                                  : CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                                child: AutoSizeText(
+                              "En Kaliteli ve Güvenilir\nOnline Terapi Hizmeti veren \nTerapistinApp",
+                              maxLines: 4,
+                              minFontSize: 30,
+                              maxFontSize: 50,
+                              textAlign:
+                                  MediaQuery.of(context).size.width <= 500
+                                      ? TextAlign.center
+                                      : TextAlign.start,
                               style: TextStyle(
+                                  //50,
+                                  fontSize:
+                                      MediaQuery.of(context).size.width * 0.028,
+                                  fontFamily: "Montserrat",
+                                  color: Color(0xff6F6F6F),
+                                  fontWeight: FontWeight.w500,
+                                  height: 1.32),
+                            )),
+                            SizedBox(
+                              height: 35,
+                            ),
+                            Container(
+                                child: AutoSizeText(
+                              "Alanında uzman psikologlar içinde \nSana en uygun olanı seç, \nrandevunu oluştur,\nHemen görüşmeye başla!",
+                              maxLines: 4,
+                              minFontSize: 20,
+                              maxFontSize: 40,
+                              textAlign:
+                                  MediaQuery.of(context).size.width <= 500
+                                      ? TextAlign.center
+                                      : TextAlign.start,
+                              style: TextStyle(
+                                  //50,
                                   fontSize:
                                       MediaQuery.of(context).size.width * 0.015,
                                   fontFamily: "Montserrat",
-                                  fontWeight: FontWeight.w300,
                                   color: Color(0xff6F6F6F),
-                                  height: 1.08)),
-                        ),
-                        SizedBox(
-                          height: 102,
-                        ),
-                        Text("Hemen İndir !",
-                            style: TextStyle(
-                                fontSize:
-                                    MediaQuery.of(context).size.width * 0.015,
-                                fontFamily: "Montserrat",
-                                fontWeight: FontWeight.w300,
-                                color: Color(0xff6F6F6F),
-                                height: 1.08)),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Flexible(
-                          child: FittedBox(
-                            child: Container(
-                              child: MouseRegion(
-                                cursor: SystemMouseCursors.click,
-                                child: GestureDetector(
-                                  onTap: () async {
-                                    const url =
-                                        "https://apps.apple.com/tr/app/terapistin/id1567890765?l=tr";
-                                    if (await canLaunch(url))
-                                      await launch(url);
-                                    else
-                                      // can't launch url, there is some error
-                                      throw "Could not launch $url";
-                                    print("apple");
-                                  },
-                                  child: Image(
-                                    image: AssetImage('images/appstore.png'),
-                                    width: 220,
-                                    height: 135.63,
+                                  fontWeight: FontWeight.w300,
+                                  height: 1.08),
+                            )),
+                            SizedBox(
+                              height: 102,
+                            ),
+                            AutoSizeText("Hemen İndir !",
+                                maxFontSize: 30,
+                                minFontSize: 20,
+                                maxLines: 2,
+                                style: TextStyle(
+                                    fontSize:
+                                        MediaQuery.of(context).size.width *
+                                            0.015,
+                                    fontFamily: "Montserrat",
+                                    fontWeight: FontWeight.w400,
+                                    color: Color(0xff6F6F6F),
+                                    height: 1.08)),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            Flexible(
+                              child: FittedBox(
+                                child: Container(
+                                  transform:
+                                      Matrix4.translationValues(0.0, 0.0, 0.0),
+                                  child: MouseRegion(
+                                    cursor: SystemMouseCursors.click,
+                                    child: GestureDetector(
+                                      onTap: () async {
+                                        const url =
+                                            "https://apps.apple.com/tr/app/terapistin/id1567890765?l=tr";
+                                        if (await canLaunch(url))
+                                          await launch(url);
+                                        else
+                                          // can't launch url, there is some error
+                                          throw "Could not launch $url";
+                                        print("apple");
+                                      },
+                                      child: Image(
+                                        image:
+                                            AssetImage('images/appstore.png'),
+                                        width:
+                                            MediaQuery.of(context).size.width <=
+                                                    500
+                                                ? MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.45
+                                                : MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.15,
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                        ),
-                        Flexible(
-                          child: FittedBox(
-                            child: Container(
-                              transform:
-                                  Matrix4.translationValues(0.0, -50.0, 0.0),
-                              child: MouseRegion(
-                                cursor: SystemMouseCursors.click,
-                                child: GestureDetector(
-                                  onTap: () async {
-                                    const url =
-                                        "https://play.google.com/store/apps/details?id=com.terapistin.terapistin&gl=TR";
-                                    if (await canLaunch(url))
-                                      await launch(url);
-                                    else
-                                      // can't launch url, there is some error
-                                      throw "Could not launch $url";
-                                    print("google");
-                                  },
-                                  child: Image(
-                                    image: AssetImage('images/googleplay.png'),
-                                    width: 220,
-                                    height: 135.63,
+                            Flexible(
+                              child: FittedBox(
+                                child: Container(
+                                  transform: Matrix4.translationValues(
+                                      0.0, -20.0, 0.0),
+                                  child: MouseRegion(
+                                    cursor: SystemMouseCursors.click,
+                                    child: GestureDetector(
+                                      onTap: () async {
+                                        const url =
+                                            "https://play.google.com/store/apps/details?id=com.terapistin.terapistin&gl=TR";
+                                        if (await canLaunch(url))
+                                          await launch(url);
+                                        else
+                                          // can't launch url, there is some error
+                                          throw "Could not launch $url";
+                                        print("google");
+                                      },
+                                      child: Image(
+                                          image: AssetImage(
+                                              'images/googleplay.png'),
+                                          width:
+                                              MediaQuery.of(context)
+                                                          .size
+                                                          .width <=
+                                                      500
+                                                  ? MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      0.45
+                                                  : MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      0.15),
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Flexible(
-                    child: FittedBox(
-                      child: Container(
-                        margin: EdgeInsets.only(left: 180),
-                        child: GestureDetector(
-                          onTap: () {
-                            print("oye");
-                          },
-                          child: Image(
-                            image: AssetImage('images/scroll.png'),
-                            height: 700,
-                            width: 420,
-                          ),
+                          ],
                         ),
                       ),
                     ),
-                  )
+                    MediaQuery.of(context).size.width > 500
+                        ? Flexible(
+                            child: FittedBox(
+                              child: Container(
+                                margin: EdgeInsets.only(left: 180),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    print("oye");
+                                  },
+                                  child: Image(
+                                    image: AssetImage('images/scroll.png'),
+                                    height: 700,
+                                    width: 420,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          )
+                        : Container()
 
-                  // Telefon Image gelicek
-                ],
+                    // Telefon Image gelicek
+                  ],
+                ),
               ),
             ),
           ],

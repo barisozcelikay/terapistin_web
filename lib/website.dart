@@ -48,21 +48,21 @@ class _WebSiteState extends State<WebSite> {
         mainAxisSize: MainAxisSize.max,
         children: [
           Container(
-            padding:
-                EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.1),
             width: MediaQuery.of(context).size.width,
             height: 100,
             color: kMainColor,
             child: Row(
               children: [
                 Expanded(
-                  flex: 2,
+                  flex: 1,
                   child: GestureDetector(
                     onTap: () {
                       _scrollToIndex(0);
                     },
                     child: Container(
+                      height: 100,
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Flexible(
                             child: FittedBox(
@@ -73,9 +73,14 @@ class _WebSiteState extends State<WebSite> {
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontFamily: "Fidena",
-                                      fontSize:
-                                          MediaQuery.of(context).size.width *
-                                              0.024),
+                                      fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .width <=
+                                              500
+                                          ? MediaQuery.of(context).size.width *
+                                              0.10
+                                          : MediaQuery.of(context).size.width *
+                                              0.030),
                                 ),
                               ),
                             ),
@@ -89,8 +94,10 @@ class _WebSiteState extends State<WebSite> {
                                   image:
                                       AssetImage('images/terapistin_logo.png'),
                                   color: Color(0xffF6AD42).withOpacity(1),
-                                  width: 51.75,
-                                  height: 72.6,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.07,
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.07,
                                 ),
                               ),
                             ),
@@ -100,52 +107,59 @@ class _WebSiteState extends State<WebSite> {
                     ),
                   ),
                 ),
-                Expanded(
-                  flex: 2,
-                  child: Container(
-                    width: MediaQuery.of(context).size.width * 0.5,
-                    padding: EdgeInsets.only(right: 100),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      // ignore: prefer_const_literals_to_create_immutables
-                      children: [
-                        RichText(
-                            text: TextSpan(
-                          text: "Nasıl Çalışır?",
-                          style: kNavBarTextStyle.copyWith(
-                              fontSize:
-                                  MediaQuery.of(context).size.width * 0.014),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              _scrollToIndex(1);
-                              print('The button is clicked!');
-                            },
-                        )),
-                        RichText(
-                            text: TextSpan(
-                          text: "Özellikler",
-                          style: kNavBarTextStyle.copyWith(
-                              fontSize:
-                                  MediaQuery.of(context).size.width * 0.014),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              _scrollToIndex(2);
-                              print('The button is clicked!');
-                            },
-                        )),
-                        RichText(
-                            text: TextSpan(
-                          text: "Destek",
-                          style: kNavBarTextStyle.copyWith(
-                              fontSize:
-                                  MediaQuery.of(context).size.width * 0.014),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              _scrollToIndex(3);
-                              print('The button is clicked!');
-                            },
-                        )),
-                        /*
+                MediaQuery.of(context).size.width > 500
+                    ? Expanded(
+                        flex: 2,
+                        child: Container(
+                          height: 100,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [
+                              RichText(
+                                  text: TextSpan(
+                                text: "    ",
+                              )),
+                              RichText(
+                                  text: TextSpan(
+                                text: "Nasıl Çalışır?",
+                                style: kNavBarTextStyle.copyWith(
+                                    fontSize:
+                                        MediaQuery.of(context).size.width *
+                                            0.018),
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    _scrollToIndex(1);
+                                    print('The button is clicked!');
+                                  },
+                              )),
+                              RichText(
+                                  text: TextSpan(
+                                text: "Özellikler",
+                                style: kNavBarTextStyle.copyWith(
+                                    fontSize:
+                                        MediaQuery.of(context).size.width *
+                                            0.018),
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    _scrollToIndex(2);
+                                    print('The button is clicked!');
+                                  },
+                              )),
+                              RichText(
+                                  text: TextSpan(
+                                text: "Destek",
+                                style: kNavBarTextStyle.copyWith(
+                                    fontSize:
+                                        MediaQuery.of(context).size.width *
+                                            0.018),
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    _scrollToIndex(3);
+                                    print('The button is clicked!');
+                                  },
+                              )),
+                              /*
                         RichText(
                             text: TextSpan(
                           text: "Blog",
@@ -157,10 +171,11 @@ class _WebSiteState extends State<WebSite> {
                               print('The button is clicked!');
                             },
                         )),*/
-                      ],
-                    ),
-                  ),
-                )
+                            ],
+                          ),
+                        ),
+                      )
+                    : Container()
               ],
             ),
           ),
