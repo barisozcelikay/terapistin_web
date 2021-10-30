@@ -36,6 +36,29 @@
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
+
+
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+
+
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyBBqtMWx1NJL7fbN9qC1qmiEHKd3zjeZxM",
+      authDomain: "terapistin-5cc87.firebaseapp.com",
+      databaseURL: "https://terapistin-5cc87-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "terapistin-5cc87",
+      storageBucket: "terapistin-5cc87.appspot.com",
+      messagingSenderId: "512647803325",
+      appId: "1:512647803325:web:2a8ac3fa670ba4e8a462d4",
+      measurementId: "G-T4C9PT3XC0"
+    };
+
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
   <script>
     var serviceWorkerVersion = null;
     var scriptLoaded = false;

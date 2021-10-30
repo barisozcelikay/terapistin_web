@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:terapistin_web/Widgets/support_text_widget.dart';
 import 'package:terapistin_web/constants.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+FirebaseFirestore firestore = FirebaseFirestore.instance;
 
 class Support extends StatefulWidget {
   const Support({
@@ -14,6 +18,8 @@ class Support extends StatefulWidget {
 }
 
 class _SupportState extends State<Support> {
+  FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
   TextEditingController _name = TextEditingController();
   TextEditingController _surname = TextEditingController();
   TextEditingController _phoneNumber = TextEditingController();
@@ -21,6 +27,8 @@ class _SupportState extends State<Support> {
 
   bool checkedValue = false;
   String dropdownValue = "Konu";
+
+  bool isSent = false;
 
   @override
   void initState() {
@@ -52,6 +60,9 @@ class _SupportState extends State<Support> {
   bool buttonActive = false;
 
   void checkAllRequired() {
+    setState(() {
+      isSent = false;
+    });
     if (_name.text.length >= 1 &&
         _surname.text.length >= 1 &&
         _phoneNumber.text.length >= 1 &&
@@ -67,6 +78,18 @@ class _SupportState extends State<Support> {
       setState(() {
         buttonActive = false;
       });
+    }
+  }
+
+  Future launchEmail(
+      {required String toEmail,
+      required String subject,
+      required String message}) async {
+    final url =
+        'mailto:$toEmail?subject=${Uri.encodeFull(subject)}&body=${Uri.encodeFull(message)}';
+
+    if (await canLaunch(url)) {
+      await launch(url);
     }
   }
 
@@ -273,7 +296,7 @@ class _SupportState extends State<Support> {
                           ),
                           Container(
                             child: Material(
-                              color: buttonActive
+                              color: (buttonActive && isSent == false)
                                   ? kMainColor
                                   : Colors.grey, // control yap
                               elevation: 5.0,
@@ -281,13 +304,28 @@ class _SupportState extends State<Support> {
                               child: MaterialButton(
                                 minWidth: 618,
                                 height: 42.0,
-                                onPressed: buttonActive
+                                onPressed: (buttonActive && isSent == false)
                                     ? () {
+                                        _firestore
+                                            .collection('web_support_form')
+                                            .add({
+                                          'name': _name.text,
+                                          'surname': _surname.text,
+                                          'phone': _phoneNumber.text,
+                                          'email': _email.text,
+                                          'topic': dropdownValue,
+                                          'subscribe': checkedValue
+                                        });
                                         print(
                                             "Portala bilgi Destek Formu Geldi");
+
+                                        setState(() {
+                                          isSent = true;
+                                        });
                                       }
                                     : null,
-                                child: Text("Gönder",
+                                child: Text(
+                                    isSent == false ? "Gönder" : "Gönderildi",
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                         fontSize: 20, color: Colors.white)),
@@ -420,7 +458,10 @@ class _SupportState extends State<Support> {
                                     child: MaterialButton(
                                       minWidth: 150,
                                       height: 42.0,
-                                      onPressed: null,
+                                      onPressed: () => launchEmail(
+                                          toEmail: "destek@terapistin.com",
+                                          subject: "Destek",
+                                          message: " "),
                                       child: Text("E-posta Gönder",
                                           textAlign: TextAlign.center,
                                           style: TextStyle(

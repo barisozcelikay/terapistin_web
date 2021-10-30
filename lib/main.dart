@@ -1,12 +1,14 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:adobe_xd/pinned.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:terapistin_web/Screens/Anasayfa3.dart';
-
 import 'website.dart';
 
-void main() {
+void main() async {
   runApp(const MyApp());
+  await initFirebase();
+}
+
+initFirebase() async {
+  await Firebase.initializeApp();
 }
 
 class MyApp extends StatelessWidget {
