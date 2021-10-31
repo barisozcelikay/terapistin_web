@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:terapistin_web/Widgets/systeminfo.dart';
+import 'Widgets/systeminfo.dart';
 import 'website.dart';
 
 void main() async {

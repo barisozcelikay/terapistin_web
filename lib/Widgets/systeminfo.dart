@@ -1,12 +1,16 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 /// System info class.
 class SystemInfo {
   ///Developer name.
-  static final String developerName = 'Berk Babadoğan';
+  static const String developerName = 'Barış Özçelikay';
+
+// Media info
+  static late MediaQueryData mediaInfo;
 
 // Is web browser or not.
 
@@ -154,8 +158,9 @@ class SystemInfo {
             ? true
             : false;
       }
+      // ignore: avoid_print
       print(
-          'Platform: $_platformName -- Device: $_deviceName -- Version: $_platformVersion');
+          'Platform: $_platformName -- Device: $_deviceName -- Version: $_platformVersion -- Is Mobile Web Browser ? : $_isMobileWebBrowser ');
     });
   }
 }

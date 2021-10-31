@@ -82,6 +82,7 @@ class _SupportState extends State<Support> {
     }
   }
 
+/*
   Future launchEmail(
       {required String toEmail,
       required String subject,
@@ -102,6 +103,7 @@ class _SupportState extends State<Support> {
     }
     */
   }
+  */
 
   @override
   Widget build(BuildContext context) {
