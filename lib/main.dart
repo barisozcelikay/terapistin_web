@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
     // ignore: prefer_const_constructors
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Terapistin',
+        title: 'Terapistin - Seninle Her Yerde',
         home: WebSite());
   }
 }

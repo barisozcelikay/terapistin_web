@@ -14,8 +14,7 @@ class Features extends StatelessWidget {
     return Container(
         // Another fixed-height child.
         color: const Color(0xffffffff), // Green
-        height: MediaQuery.of(context).size.height,
-        alignment: Alignment.center,
+
         child: Container(
           child: Column(
             crossAxisAlignment: MediaQuery.of(context).size.width > 500
@@ -40,7 +39,228 @@ class Features extends StatelessWidget {
                       fontWeight: FontWeight.w400),
                 ),
               ),
-              Container(
+              Expanded(
+                child: Row(
+                  children: [
+                    Visibility(
+                      visible: () {
+                        return MediaQuery.of(context).size.width > 500
+                            ? true
+                            : false;
+                      }(),
+                      child: Expanded(
+                        child: Image.asset('images/twophones.png'),
+                      ),
+                    ),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Visibility(
+                            visible: MediaQuery.of(context).size.width > 500
+                                ? true
+                                : false,
+                            child: Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Expanded(
+                                    flex: 5,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(10),
+                                      child: AutoSizeText(
+                                        "Terapistin’i Google play veya App Store üzerinden\nindirebilir,\nTerapistini seçtikten sonra randevunu oluşturup,\ngörüşmeye hemen başlayabilirsin!",
+                                        maxLines: 4,
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                            fontSize: 25,
+                                            fontFamily: "Montserrat",
+                                            fontWeight: FontWeight.w300),
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    flex: 2,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(10),
+                                      child: AutoSizeText(
+                                        "Terapistin seninle her yerde!",
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                            fontSize: 30,
+                                            fontFamily: "Montserrat",
+                                            fontWeight: FontWeight.w300),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          MediaQuery.of(context).size.width > 500
+                              ? Expanded(
+                                  flex: 2,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10),
+                                    child: Column(
+                                      children: [
+                                        Expanded(
+                                          child: Row(
+                                            children: [
+                                              Expanded(
+                                                child: Padding(
+                                                  padding: EdgeInsets.all(10),
+                                                  child: Feature_Box(
+                                                    sentence:
+                                                        "Psikologları,\nyorum,\npuan veya ücret\nözelliklerine\ngöre seçebilme",
+                                                  ),
+                                                ),
+                                              ),
+                                              Expanded(
+                                                child: Padding(
+                                                  padding: EdgeInsets.all(10),
+                                                  child: Feature_Box(
+                                                    sentence:
+                                                        "Başka bir uygulamaya\ngerek duymadan\nterapistin ile\nkaliteli ve güvenli\ngörüntülü görüşme",
+                                                  ),
+                                                ),
+                                              ),
+                                              Expanded(
+                                                child: Padding(
+                                                  padding: EdgeInsets.all(10),
+                                                  child: Feature_Box(
+                                                    sentence:
+                                                        "Takvim üzerinden\nrandevu takibi,\nhatırlatıcı bildirim alabilme",
+                                                  ),
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                        Expanded(
+                                          child: Row(
+                                            children: [
+                                              Expanded(
+                                                child: Padding(
+                                                  padding: EdgeInsets.all(10),
+                                                  child: Feature_Box(
+                                                    sentence: "Ödeme kolaylığı",
+                                                  ),
+                                                ),
+                                              ),
+                                              Expanded(
+                                                child: Padding(
+                                                  padding: EdgeInsets.all(10),
+                                                  child: Feature_Box(
+                                                    sentence:
+                                                        "Gizlilik sözleşmesi\nkolaylığı",
+                                                  ),
+                                                ),
+                                              ),
+                                              Expanded(
+                                                child: Padding(
+                                                  padding: EdgeInsets.all(10),
+                                                  child: Feature_Box(
+                                                    sentence:
+                                                        "İstediğin yer ve\nzamanda\nTerapistin ile\ngörüşebilme",
+                                                  ),
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ))
+                              : Expanded(
+                                  flex: 2,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Expanded(
+                                          child: Row(
+                                            children: [
+                                              Expanded(
+                                                child: Padding(
+                                                  padding: EdgeInsets.all(10),
+                                                  child: Feature_Box(
+                                                    sentence:
+                                                        "Psikologları,\nyorum,\npuan veya ücret\nözelliklerine\ngöre seçebilme",
+                                                  ),
+                                                ),
+                                              ),
+                                              Expanded(
+                                                child: Padding(
+                                                  padding: EdgeInsets.all(10),
+                                                  child: Feature_Box(
+                                                    sentence:
+                                                        "Başka bir uygulamaya\ngerek duymadan\nterapistin ile\nkaliteli ve güvenli\ngörüntülü görüşme",
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Expanded(
+                                          child: Row(
+                                            children: [
+                                              Expanded(
+                                                child: Padding(
+                                                  padding: EdgeInsets.all(10),
+                                                  child: Feature_Box(
+                                                    sentence:
+                                                        "Takvim üzerinden\nrandevu takibi,\nhatırlatıcı bildirim alabilme",
+                                                  ),
+                                                ),
+                                              ),
+                                              Expanded(
+                                                child: Padding(
+                                                  padding: EdgeInsets.all(10),
+                                                  child: Feature_Box(
+                                                    sentence: "Ödeme kolaylığı",
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Expanded(
+                                          child: Row(
+                                            children: [
+                                              Expanded(
+                                                child: Padding(
+                                                  padding: EdgeInsets.all(10),
+                                                  child: Feature_Box(
+                                                    sentence:
+                                                        "Gizlilik sözleşmesi\nkolaylığı",
+                                                  ),
+                                                ),
+                                              ),
+                                              Expanded(
+                                                child: Padding(
+                                                  padding: EdgeInsets.all(10),
+                                                  child: Feature_Box(
+                                                    sentence:
+                                                        "İstediğin yer ve\nzamanda\nTerapistin ile\ngörüşebilme",
+                                                  ),
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ))
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              )
+              /*Container(
                 height: MediaQuery.of(context).size.height - 230,
                 alignment: MediaQuery.of(context).size.width > 500
                     ? Alignment.topLeft
@@ -197,6 +417,7 @@ class Features extends StatelessWidget {
                   ],
                 ),
               )
+            */
             ],
           ),
         ));
@@ -212,6 +433,9 @@ class Feature_Box extends StatelessWidget {
     return Container(
       alignment: Alignment.center,
       margin: EdgeInsets.only(right: 10),
+      constraints: BoxConstraints(
+          maxHeight: MediaQuery.of(context).size.width > 500 ? 130 : 200,
+          maxWidth: MediaQuery.of(context).size.width > 500 ? 130 : 200),
       decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
@@ -223,10 +447,6 @@ class Feature_Box extends StatelessWidget {
           border: Border.all(color: Color(0xffFD7B22)),
           color: Color(0xffFD7B22),
           borderRadius: BorderRadius.all(Radius.circular(20))),
-      height: MediaQuery.of(context).size.width > 500 ? 150.18 : 40.18,
-      width: MediaQuery.of(context).size.width > 500
-          ? 190.38
-          : MediaQuery.of(context).size.width * 0.5,
       child: AutoSizeText(
         sentence,
         maxLines: 5,
